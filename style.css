@@ -4,23 +4,18 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100%;
-  height: 100%;
-}
-
 .container {
-  width: 50%;
+  width: 60%;
   height: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  background-color: #e0edfa;
+  background-color: #7d5fff;
   border-radius: 10px;
   border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
 }
 .container h1 {
   margin: auto;
@@ -28,12 +23,12 @@ body {
   display: flex;
   justify-content: center;
   position: absolute;
-  top: -50px;
+  top: -3rem;
 }
 
 .title {
   width: 90%;
-  height: 150px;
+  height: 9.5rem;
 
   position: relative;
   margin: auto;
@@ -60,20 +55,20 @@ input::placeholder {
 }
 
 .add {
-  width: 73px;
-  height: 40px;
-  background-color: #26b264;
+  width: 4.5rem;
+  height: 2.2rem;
+  background-color: #25ccf7;
 }
 
 .btn {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: #fff;
 }
 .tasks-container {
   width: 100%;
   overflow-y: auto;
-  padding-top: 10px;
   flex-grow: 1;
 }
 
@@ -104,21 +99,21 @@ input::placeholder {
 }
 
 .status {
-  width: 60px;
-  height: 30px;
+  width: 4rem;
+  height: 1.8rem;
 }
 
 span {
   color: rgb(189, 189, 189);
-  padding-top: 2px;
+  padding-top: 0.1em;
 }
 
 .edite {
-  background-color: #2498db;
+  background-color: #ffa801;
 }
 
 .delete {
-  background-color: #eb6b7c;
+  background-color: #f97f51;
 }
 @media (max-width: 900px) {
   .container {
@@ -127,4 +122,8 @@ span {
   h1 {
     font-size: 20px;
   }
+}
+
+.hide {
+  display: none;
 }
