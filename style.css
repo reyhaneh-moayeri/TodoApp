@@ -115,6 +115,14 @@ span {
 .delete {
   background-color: #f97f51;
 }
+.complete {
+  background-color: green;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: rgb(136, 135, 135);
+}
 @media (max-width: 900px) {
   .container {
     width: 80%;

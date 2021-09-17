@@ -32,9 +32,15 @@ const addTodo = (e) => {
         const deleteBtn = document.createElement('button')
         deleteBtn.classList.add('delete', 'status', 'btn')
         deleteBtn.innerText = 'Delete'
+
+
+        const completeBtn = document.createElement('button')
+        completeBtn.classList.add('complete', 'status', 'btn')
+        completeBtn.innerText = 'completed'
     
         taskStatus.appendChild(editBtn)
         taskStatus.appendChild(deleteBtn)
+        taskStatus.appendChild(completeBtn)
         tasksContainer.appendChild(taskDiv)
         // clear todo input value
         todoInput.value = ''
@@ -47,6 +53,11 @@ const deleteTask = (e) => {
     if (e.target.classList[0] === 'delete') {
         const todo = e.target.closest('.task')
         todo.remove()
+    }
+
+    else if (e.target.classList[0] === 'complete') {
+        const todo = e.target.closest('.task-content')
+        todo.classList.toggle('completed')
     }
 }
 
