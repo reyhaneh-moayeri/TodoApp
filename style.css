@@ -104,7 +104,7 @@ input::placeholder {
 }
 
 span {
-  color: rgb(189, 189, 189);
+  /* color: rgb(189, 189, 189); */
   padding-top: 0.1em;
 }
 

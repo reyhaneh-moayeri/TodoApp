@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <title>Todo App</title>
   </head>
   <body>
@@ -13,7 +16,7 @@
       <!-- task input  -->
       <div class="title">
         <div class="title-input">
-          <input type="text" placeholder="Title" />
+          <input type="text" placeholder="Title" class="todo-input"/>
         </div>
         <div class="title-btn btn">
           <button class="btn add">ADD</button>
@@ -22,40 +25,15 @@
 
       <!-- tasks added -->
       <div class="tasks-container">
-        <div class="task">
+        <!-- <div class="task">
           <div class="task-content">
-            <span>Task 1</span>
+            <span class="task-title">Task 1</span>
             <div class="task-status">
               <button class="btn status edite">Edit</button>
               <button class="btn status delete">Delete</button>
             </div>
-          </div>
+          </div> -->
         </div>
-
-        <!-- task 2 -->
-        <div class="task">
-          <div class="task-content">
-            <span>Task 2</span>
-            <div class="task-status">
-              <button class="btn status edite">Edit</button>
-              <button class="btn status delete">Delete</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- task 3 -->
-
-        <div class="task">
-          <div class="task-content">
-            <span>Task 3</span>
-            <div class="task-status">
-              <button class="btn status edite">Edit</button>
-              <button class="btn status delete">Delete</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="./index.js"></script>
   </body>
