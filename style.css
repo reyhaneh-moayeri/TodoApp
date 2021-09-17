@@ -65,6 +65,7 @@ input::placeholder {
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
+  background-color: #25ccf7;
 }
 .tasks-container {
   width: 100%;
@@ -106,6 +107,7 @@ input::placeholder {
 span {
   /* color: rgb(189, 189, 189); */
   padding-top: 0.1em;
+  font-size: 1.5rem;
 }
 
 .edite {
