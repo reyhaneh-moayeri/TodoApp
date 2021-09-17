@@ -7,38 +7,38 @@ const todoInput = document.querySelector('.todo-input')
 const addTodo = (e) => {
 
     e.preventDefault()
-    const taskDiv = document.createElement('div')
-    taskDiv.classList.add('task')
 
-    const taskContent = document.createElement('div')
-    taskContent.classList.add('task-content')
+    if (todoInput.value) {
+        const taskDiv = document.createElement('div')
+        taskDiv.classList.add('task')
 
-    const taskTitle = document.createElement('span')
-    taskTitle.classList.add('task-title')
-    taskTitle.innerText =  todoInput.value
-    taskDiv.appendChild(taskContent)
-    taskContent.appendChild(taskTitle)
+        const taskContent = document.createElement('div')
+        taskContent.classList.add('task-content')
+
+        const taskTitle = document.createElement('span')
+        taskTitle.classList.add('task-title')
+        taskTitle.innerText = todoInput.value
+        taskDiv.appendChild(taskContent)
+        taskContent.appendChild(taskTitle)
      
-    const taskStatus = document.createElement('div')
-    taskStatus.classList.add('task-status')
-    taskContent.appendChild(taskStatus)
+        const taskStatus = document.createElement('div')
+        taskStatus.classList.add('task-status')
+        taskContent.appendChild(taskStatus)
     
-    const editBtn = document.createElement('button')
-    editBtn.classList.add('edite', 'status' , 'btn')
-    editBtn.innerText = 'Edite'
-    const deleteBtn = document.createElement('button')
-    deleteBtn.classList.add('delete' , 'status' , 'btn')
-    deleteBtn.innerText = 'Delete'
+        const editBtn = document.createElement('button')
+        editBtn.classList.add('edite', 'status', 'btn')
+        editBtn.innerText = 'Edite'
+        
+        const deleteBtn = document.createElement('button')
+        deleteBtn.classList.add('delete', 'status', 'btn')
+        deleteBtn.innerText = 'Delete'
     
-    taskStatus.appendChild(editBtn)
-    taskStatus.appendChild(deleteBtn)
+        taskStatus.appendChild(editBtn)
+        taskStatus.appendChild(deleteBtn)
+        tasksContainer.appendChild(taskDiv)
 
-
-
-
-    tasksContainer.appendChild(taskDiv)
-
-    todoInput.value = ''
+        todoInput.value = ''
+    }
     
 }
 
