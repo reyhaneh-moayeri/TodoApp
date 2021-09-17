@@ -28,7 +28,7 @@ const addTodo = (e) => {
         const editBtn = document.createElement('button')
         editBtn.classList.add('edite', 'status', 'btn')
         editBtn.innerText = 'Edite'
-        
+
         const deleteBtn = document.createElement('button')
         deleteBtn.classList.add('delete', 'status', 'btn')
         deleteBtn.innerText = 'Delete'
@@ -36,11 +36,20 @@ const addTodo = (e) => {
         taskStatus.appendChild(editBtn)
         taskStatus.appendChild(deleteBtn)
         tasksContainer.appendChild(taskDiv)
-
+        // clear todo input value
         todoInput.value = ''
     }
     
 }
 
+const deleteTask = (e) => {
+
+    if (e.target.classList[0] === 'delete') {
+        const todo = e.target.closest('.task')
+        todo.remove()
+    }
+}
+
 // eventListener
 addBtn.addEventListener('click', addTodo)
+tasksContainer.addEventListener('click' , deleteTask)
