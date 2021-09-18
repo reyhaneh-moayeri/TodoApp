@@ -3,7 +3,7 @@ const tasksContainer = document.querySelector('.tasks-container')
 const todoInput = document.querySelector('.todo-input')
 
 // function
-
+document.addEventListener('DOMContentLoaded', getTodos)
 const addTodo = (e) => {
 
     e.preventDefault()
@@ -37,6 +37,7 @@ const addTodo = (e) => {
         const completeBtn = document.createElement('button')
         completeBtn.classList.add('complete', 'status', 'btn')
         completeBtn.innerText = 'completed'
+        saveTodos(todoInput.value)
     
         taskStatus.appendChild(editBtn)
         taskStatus.appendChild(deleteBtn)
@@ -53,6 +54,7 @@ const TaskBtns = (e) => {
 
     if (e.target.classList[0] === 'delete') {
         const todo = button.closest('.task')
+        removeLocalTodos(todo)
         todo.remove()
     }
 
@@ -89,7 +91,90 @@ const TaskBtns = (e) => {
        
     }
 }
-
 // eventListener
 addBtn.addEventListener('click', addTodo)
-tasksContainer.addEventListener('click' , TaskBtns)
+tasksContainer.addEventListener('click', TaskBtns)
+
+
+//  add local storage
+
+const saveTodos = (todo) => {
+    let todos;
+
+    if (localStorage.getItem('todos') === null) {
+       todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+   }
+
+    todos.push(todo)
+    localStorage.setItem("todos" , JSON.stringify(todos))
+
+    
+}
+
+function getTodos(todo){
+    let todos;
+
+    if (localStorage.getItem('todos') === null) {
+       todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+    
+    todos.forEach((todo) => {
+               const taskDiv = document.createElement('div')
+        taskDiv.classList.add('task')
+
+        const taskContent = document.createElement('div')
+        taskContent.classList.add('task-content')
+
+        const taskTitle = document.createElement('span')
+        taskTitle.classList.add('task-title')
+        taskTitle.innerText = todo
+        taskDiv.appendChild(taskContent)
+        taskContent.appendChild(taskTitle)
+     
+        const taskStatus = document.createElement('div')
+        taskStatus.classList.add('task-status')
+        taskContent.appendChild(taskStatus)
+    
+        const editBtn = document.createElement('button')
+        editBtn.classList.add('edite', 'status', 'btn')
+        editBtn.innerText = 'Edite'
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.classList.add('delete', 'status', 'btn')
+        deleteBtn.innerText = 'Delete'
+
+
+        const completeBtn = document.createElement('button')
+        completeBtn.classList.add('complete', 'status', 'btn')
+        completeBtn.innerText = 'completed'
+    
+        taskStatus.appendChild(editBtn)
+        taskStatus.appendChild(deleteBtn)
+        taskStatus.appendChild(completeBtn)
+        tasksContainer.appendChild(taskDiv)
+        
+
+    })
+
+}
+
+// localStorage.clear()
+
+function removeLocalTodos(todo) {
+     let todos;
+    if (localStorage.getItem('todos') === null) {
+       todos = []
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'))
+   }
+
+   const todoIndex =  todo.querySelector("span").innerText
+    // console.log(todos.indexOf(todo.querySelector("span").innerText));
+    todos.splice(todos.indexOf(todoIndex), 1)
+    localStorage.setItem('todos' , JSON.stringify(todos))
+    
+}
